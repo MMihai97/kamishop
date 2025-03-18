@@ -10,7 +10,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const originalContent = content.innerHTML;
     const newContent = `
         <h1>ShopOnline</h1>
-        <p>Acesta este un alt conținut afișat când tragi slider-ul în dreapta.</p>
+        <div class="products">
+            <div class="product">
+                <img src="img/product1.jpg" alt="VentDesign100">
+                <h3>VentDesign100</h3>
+                <p>4.999 MDL</p>
+            </div>
+            <div class="product">
+                <img src="img/product2.jpg" alt="VentDesign125">
+                <h3>VentDesign125</h3>
+                <p>5.499 MDL</p>
+            </div>
+            <div class="product">
+                <img src="img/product3.jpg" alt="VentDesign150">
+                <h3>VentDesign150</h3>
+                <p>5.999 MDL</p>
+            </div>
+        </div>
     `;
 
     slider.addEventListener("mousedown", startDragging);
@@ -54,6 +70,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function stopDragging() {
+        if (isDragging) {
+            isDragging = false;
+            sliderLeft = parseInt(slider.style.left) || 0;
+        }
+    }
+});
         if (isDragging) {
             isDragging = false;
             sliderLeft = parseInt(slider.style.left) || 0;
